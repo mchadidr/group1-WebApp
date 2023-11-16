@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost/your-database-name', {
+mongoose.connect('mongodb+srv://mfranc99:COMP229@comp229.0zro2tz.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
