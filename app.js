@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const userRoutes = require('./routes/userRoutes');
+require('dotenv').config();//oad environment variables from the .env file:
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +16,9 @@ mongoose.connect('mongodb://localhost/your-database-name', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+//USE USER ROUTES
+app.use('/api/users', userRoutes)
 
 // Start the server
 app.listen(port, () => {
