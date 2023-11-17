@@ -17,6 +17,10 @@ mongoose.connect('mongodb+srv://mfranc99:COMP229@comp229.0zro2tz.mongodb.net/', 
   useUnifiedTopology: true,
 });
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to Real Estate application.' });
+});
+
 //USE USER ROUTES
 app.use('/api/users', userRoutes)
 
