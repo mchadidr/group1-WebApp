@@ -6,14 +6,11 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
-<<<<<<< Updated upstream
+
 const contactRoutes = require('./routes/contact.server.routes');
 require('dotenv').config();//load environment variables from the .env file:
-=======
 require('dotenv').config();//load environment variables from the .env file:
 
-
->>>>>>> Stashed changes
 const app = express();
 const profileRouter = require('./path/to/profile.server.router');
 
