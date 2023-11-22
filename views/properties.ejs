@@ -24,6 +24,7 @@
         </nav>
     </header>
 
+<<<<<<< Updated upstream
 <!--
     <nav>
         <a href="/">Home</a>
@@ -31,6 +32,22 @@
         <a href="/sign">Sign In/Sign Up</a>
         <a href="#">Contact</a>
     </nav>-->
+=======
+   <!-- Add this code to your EJS files where the navigation bar should appear -->
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/properties">Properties</a>
+    <% if (user) { %>
+        <a href="/profile">My Profile</a>
+        <a href="/logout">Sign Out</a>
+    <% } else { %>
+        <a href="/sign">Sign In/Sign Up</a>
+    <% } %>
+    <a href="#">Contact</a>
+</nav>
+
+>>>>>>> Stashed changes
 
     <div class="container">
         <div class="properties-container">

@@ -27,7 +27,26 @@
         </nav>
     </header>
 
+<<<<<<< Updated upstream
     <div class="sign-container">
+=======
+    <!-- Add this code to your EJS files where the navigation bar should appear -->
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/properties">Properties</a>
+    <% if (user) { %>
+        <a href="/profile">My Profile</a>
+        <a href="/logout">Sign Out</a>
+    <% } else { %>
+        <a href="/sign">Sign In/Sign Up</a>
+    <% } %>
+    <a href="#">Contact</a>
+</nav>
+
+
+    <div class="container">
+>>>>>>> Stashed changes
         <section id="auth">
             <div class="auth-option" id="signUpOption">
                 <h2>Sign Up</h2>
