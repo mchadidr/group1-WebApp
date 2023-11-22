@@ -75,4 +75,21 @@ router.delete('/profile/delete', authenticateUser, async (req, res) => {
   });
 
 
+// Logout route - clear user's session
+router.post('/logout', authenticateUser, async (req, res, next) => {
+  try {
+    const { refreshToken } = req.body;
+    if (!refreshToken) throw createError.BadRequest();
+    //returns the user ID
+    const userId = await verifyRefreshToken(refreshToken);
+
+    res.redirect('/'); //back to main page
+  } catch (error) {
+    next(error);
+  }
+});
+
+module.exports = router;
+
+
 module.exports = router;

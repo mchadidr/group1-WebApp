@@ -6,10 +6,10 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
-require('dotenv').config();//oad environment variables from the .env file:
-
-
+const contactRoutes = require('./routes/contact.server.routes');
+require('dotenv').config();//load environment variables from the .env file:
 const app = express();
+const profileRouter = require('./path/to/profile.server.router');
 
 if (process.env.NODE_ENV === 'development'){
   app.use(morgan('dev'));
@@ -36,7 +36,8 @@ app.use(express.static('public/img'));
 require('./routes/index.server.routes.js')(app);
 require('./routes/sign.server.routes.js')(app);
 require('./routes/properties.server.routes.js')(app);
-
+require('./routes/contact.server.routes.js')(app);
+app.use('/', profileRouter);
 app.use(express.static('./public'));
 
 // MongoDB Connection

@@ -11,30 +11,25 @@
 <body>
 
     <header>
-            <img src="logo.png" alt="Logo" class="logo">
-            <h1><%= title %></h1>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1><%= title %></h1>
+        <!--navigation-->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/properties">Properties</a>
+            <% if (user) { %>
+                <a href="/profile">My Profile</a>
+                <a href="/logout">Sign Out</a>
+            <% } else { %>
+                <a href="/sign">Sign In/Sign Up</a>
+            <% } %>
+            <a href="/contact">Contact</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="/">Home</a>
-        <a href="/properties">Properties</a>
-        <a href="/sign">Sign In/Sign Up</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <div class="container">
+    <div class="sign-container">
         <section id="auth">
-            <div class="auth-option">
-                <h2>Sign In</h2>
-                <!-- Sign In Form -->
-                <form id="signInForm">
-                    <input type="text" name="username" placeholder="Username" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Sign In</button>
-                </form>
-            </div>
-            <div class="auth-option">
+            <div class="auth-option" id="signUpOption">
                 <h2>Sign Up</h2>
                 <!-- Sign Up Form -->
                 <form id="signUpForm">
@@ -43,13 +38,32 @@
                     <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">Sign Up</button>
                 </form>
+                <p>Already a member? <a href="#" onclick="toggleAuthOption('signInOption')">Sign In</a></p>
+            </div>
+            <div class="auth-option" id="signInOption" style="display: none;">
+                <h2>Sign In</h2>
+                <!-- Sign In Form -->
+                <form id="signInForm">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Sign In</button>
+                </form>
+                <p>Not a member? <a href="#" onclick="toggleAuthOption('signUpOption')">Sign Up</a></p>
             </div>
         </section>
     </div>
 
     <footer>
-        &copy; 2023 TZ Real Estate 
+        &copy; 2023 TZ Real Estate
     </footer>
+
+    <script>
+        function toggleAuthOption(option) {
+            document.getElementById('signUpOption').style.display = option === 'signUpOption' ? 'block' : 'none';
+            document.getElementById('signInOption').style.display = option === 'signInOption' ? 'block' : 'none';
+        }
+    </script>
 
 </body>
 

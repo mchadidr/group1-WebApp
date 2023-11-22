@@ -10,14 +10,27 @@
     <header>
         <img src="logo.png" alt="Logo" class="logo">
         <h1><%= title %></h1>
+        <!--navigation-->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/properties">Properties</a>
+            <% if (user) { %>
+                <a href="/profile">My Profile</a>
+                <a href="/logout">Sign Out</a>
+            <% } else { %>
+                <a href="/sign">Sign In/Sign Up</a>
+            <% } %>
+            <a href="/contact">Contact</a>
+        </nav>
     </header>
 
+<!--
     <nav>
         <a href="/">Home</a>
         <a href="/properties">Properties</a>
         <a href="/sign">Sign In/Sign Up</a>
         <a href="#">Contact</a>
-    </nav>
+    </nav>-->
 
     <div class="container">
         <div class="properties-container">
