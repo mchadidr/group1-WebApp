@@ -8,11 +8,11 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 
 const contactRoutes = require('./routes/contact.server.routes');
+const profileRouter = require('./routes/profile.server.routes');
 require('dotenv').config();//load environment variables from the .env file:
 require('dotenv').config();//load environment variables from the .env file:
 
 const app = express();
-const profileRouter = require('./path/to/profile.server.router');
 
 if (process.env.NODE_ENV === 'development'){
   app.use(morgan('dev'));
