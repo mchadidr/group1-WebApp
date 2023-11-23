@@ -74,6 +74,30 @@ router.delete('/profile/delete', authenticateUser, async (req, res) => {
     }
   });
 
+  // POST new data
+router.post('/', async (req, res) => {
+  const newData = new Data(req.body);
+  try {
+    const savedData = await newData.save();
+    res.json(savedData);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
+// PUT update data
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedData = await Data.updateOne(
+      { _id: req.params.id },
+      { $set: req.body }
+    );
+    res.json(updatedData);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 
 // Logout route - clear user's session
 router.post('/logout', authenticateUser, async (req, res, next) => {
